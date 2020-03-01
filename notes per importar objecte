@@ -1,0 +1,71 @@
+
+
+ingredient -->element.ingredients_text
+nutriscore -->element.nutriscore_gradeç
+codibarras -->element.code
+id --> element._id
+cantidad_text -->element.quantity
+cantidad num--->element.product_quantity
+ingredientsAmbAlergens --->element.ingredients_text_with_allergens_en
+tabla nutricional -->${element.nutriments.}
+calcium: "0.1072"
+nova-group_100g: 3
+salt_100g: "0.14"
+proteins_serving: 5
+energy_serving: 365
+nutrition-score-fr: 1
+calcium_value: "107.2"
+saturated-fat_100g: "2.2"
+salt_value: "0.14"
+sugars: 6
+energy-kcal_100g: 292
+carbohydrates_value: 6
+salt_unit: "g"
+sodium_100g: "0.056"
+calcium_label: "0"
+energy: 292
+fat_unit: "g"
+fat: "3.3"
+nova-group: 3
+sodium_serving: "0.07"
+fat_100g: "3.3"
+proteins: 4
+salt: "0.14"
+calcium_serving: "0.134"
+energy-kcal_value: "69.9"
+calcium_100g: "0.1072"
+saturated-fat_value: "2.2"
+proteins_value: 4
+sodium: "0.056"
+carbohydrates_100g: 6
+energy_unit: "kcal"
+energy_value: "69.9"
+energy-kcal: 292
+carbohydrates: 6
+carbohydrates_serving: "7.5"
+calcium_unit: "mg"
+fat_value: "3.3"
+nutrition-score-fr_100g: 1
+sugars_value: 6
+sugars_unit: "g"
+salt_serving: "0.175"
+carbohydrates_unit: "g"
+sodium_unit: "g"
+saturated-fat: "2.2"
+nutrition-score-uk: 1
+energy-kcal_unit: "kcal"
+nutrition-score-uk_100g: 1
+sugars_serving: "7.5"
+fat_serving: "4.12"
+energy_100g: 292
+sodium_value: "0.056"
+energy-kcal_serving: 365
+saturated-fat_unit: "g"
+proteins_unit: "g"
+sugars_100g: 6
+saturated-fat_serving: "2.75"
+nova-group_serving: 3
+proteins_100g: 4
+
+
+
