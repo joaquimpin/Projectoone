@@ -17,14 +17,7 @@ let faq = ["py-5 borrar", "<div class='container'> <div class='row'> <div class=
 let register = ["py-5 text-center", '<div class="container"> <div class="row"> <div class="mx-auto col-lg-6 col-10"> <h1>Register</h1> <p class="mb-3">When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees.</p> <form class="text-left"> <div class="form-group "> <label for="form16">Your Name</label> <input type="text" class="form-control name" id="form16" placeholder="You IronHacker name" required> </div> <div class="form-group "> <label for="form17">Second Name</label> <input type="text" class="form-control secondname" id="form17" placeholder="Werther Inc." required> </div> <div class="form-row"> <div class="form-group col-md-6 "> <label for="form18">Your email</label> <input type="email" class="form-control email" id="form18" placeholder="j.goethe@werther.com" required pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}"> </div> <div class="form-group col-md-6 "> <label for="form19" required>Confirm email</label> <input type="email" class="form-control confirmemail" id="form24" placeholder="j.goethe@werther.com" required> </div> </div> <div class="form-row"> <div class="form-group col-md-6 "> <label for="form21" required>Password</label> <input type="password" class="form-control password" id="form20" placeholder="••••" required pattern=[a-zA-Z0-10]{5,} title="Five or more characters"> </div> <div class="form-group col-md-6 "> <label for="form20">Confirm Password</label> <input type="password" class="form-control confirmpassword" id="form21" placeholder="••••" required> </div> </div> <div class="form-group"> <div class="form-check "> <input class="form-check-input termandconditions" type="checkbox" id="form21"> <label class="form-check-label" for="form22"> I Agree with <a class="btn conditions">Term and Conditions</a> of the service </label> </div> </div> <a class="btn btn-primary signup">Sign Up</a> </form> </div> </div> </div>']
 let product = ["py-5 borrar", "<div class='container'> <div class='row'> <div class='px-lg-5 d-flex flex-column justify-content-center col-lg-6'> <h1 contenteditable='true'>Nutella</h1> <p class='mb-3 lead' contenteditable='true'>Código de barras: 3017620422003 (EAN / EAN-13)</p> </div> <div class='col-lg-6'> <img class='img-fluid d-block' src='https://static.pingendo.com/cover-moon.svg'> </div> </div> </div> <div class='container'> <div class='row'> <div class='col-md-12'> <div class='table-responsive'> <table class='table table-striped table-dark'> <thead> <tr> <th scope='col'> </th> <th scope='col'>${element.name}</th> <th scope='col'>Last</th> </tr> </thead> <tbody> <tr> <th scope='row'>1</th> <td>Mark</td> <td>Otto</td> </tr> <tr> <th scope='row'>2</th> <td>Jacob</td> <td>Thornton</td> </tr> <tr> <th scope='row'>3</th> <td>Larry</td> <td>the Bird</td> </tr> </tbody> </table> </div> </div> </div> </div>"]
 botonPrincipal.addEventListener("click", function () { cargarHtml(principal) })
-botonLogIn.addEventListener("click", function () {
-    if (botonLogIn.querySelector("a").innerText = "login") {
-        cargarHtml(login); crearEventosLogin()
-    } else {
-        console.log("Account mode")
-    }
-
-})
+botonLogIn.addEventListener("click", function () {eventobotonlogin(botonLogIn.querySelector("a").innerText)})
 botonBusqueda.addEventListener("click", function () { cargarHtml(resultadosbusqueda) })
 botonContacto.addEventListener("click", function () { cargarHtml(contacto) })
 botonFaq.addEventListener("click", function () { cargarHtml(faq) })
@@ -33,6 +26,14 @@ submmitButton.addEventListener("click", function () { generarHtmlBusqueda(search
 // submmitButton.addEventListener("click",function(){search(searchbar.value)})
 cargarHtml(principal)
 let arrayProductosRespuesta = []
+function eventobotonlogin(contenido){
+    console.log(contenido)
+    if (contenido==="LogIn") {
+        cargarHtml(login); crearEventosLogin()
+    } else {
+        console.log("Account mode")
+    }
+}
 
 function cargarHtml(elemento) {
     console.log("carrgant nou HTMl")
@@ -53,7 +54,7 @@ function crearEventosArticle() {
 function crearEventosLogin() {
     console.log(document.getElementsByClassName("Register"))
     document.getElementsByClassName("Register")[0].addEventListener("click", function () { cargarHtml(register); crearEventosRegister() })
-    document.getElementsByClassName("login")[0].addEventListener("click", function () { loginaccount() })
+    document.getElementsByClassName("login")[0].addEventListener("click", function () { loginaccount()})
 }
 
 function crearEventosRegister() {
@@ -106,11 +107,12 @@ function cargarProducto(posicionArray) {
 
 // const fetch = require("node-fetch");
 function search(query) {
+    console.log(query)
     fetch(`https://es.openfoodfacts.org/cgi/search.pl?search_terms=${query}&search_simple=1&json=true`)
         .then(response => response.json())
         .then(data => {
             arrayProductosRespuesta = data.products
-            generarHtmlBusqueda(adsfasdjl)
+            generarHtmlBusqueda(data.products)
             return data; // no consigo capturar el return me da undefined a causa de la promise, le he puesto await al llamar a la funcion y tampoco me funciona.
         })
         .catch(error => console.error(error));
@@ -154,9 +156,10 @@ class SignupValidator {
             createNewUser.apellido = apellido
             createNewUser.password = password
             createNewUser.email = email
+            console.log(password.hashcode())
             this.grabrarUsuario(email, JSON.stringify(createNewUser))
             setTimeout(function () {
-                cargarHtml(principal);
+                cargarHtml(login);
             }, 2000);
         }
     }
@@ -208,6 +211,7 @@ function userlogged(userobject) {
         }, 2000);
     }, 2000);
     botonLogIn.querySelector("a").innerText = "Account"
+
 }
 
 function writeStatusLogin(user) {
@@ -222,6 +226,7 @@ function readStatusLogin() {
             localStorage.setItem("logged", null);
             document.getElementsByClassName("iconuser")[0].innerHTML = "";
             botonLogIn.querySelector("a").innerText = "Login"
+            botonLogIn(botonLogIn.querySelector("a").innerText)
         }
         )
     }
