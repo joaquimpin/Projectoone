@@ -135,19 +135,21 @@ class LoginValidator {
             if (password != null) {
                 if (objecteUsuari.password === password) {
                     if (objecteUsuari.email === usuario) {
+                        mensajeError(window, document, jQuery, "success", "User loged in");
+
                         userlogged(objecteUsuari)
                         return
                     }
                 } else {
+                    mensajeError(window, document, jQuery, "error", "Password error");
                     console.log("Password error")
                 }
 
             }
         } else {
-            console.log("usuari no existent a la bdd")
+            mensajeError(window, document, jQuery, "error", "User does not exist");console.log("usuari no existent a la bdd")
         }
-
-        console.log("error")
+       
     }
 
 }
@@ -161,6 +163,7 @@ class SignupValidator {
                     if (this.verifymail(email, verifymail)) {
                         if (this.emailNotExistInDB(email)) {
                             if (this.verifypassword(password, verifypassword)) {
+                                mensajeError(window, document, jQuery, "success", "User created");
                                 cargarHtml(spin)
                                 let createNewUser = new Usuario
                                 createNewUser.nombre = nombre
@@ -171,12 +174,30 @@ class SignupValidator {
                                 setTimeout(function () {
                                     cargarHtml(login);
                                 }, 2000);
-                            } else { console.log("User and password not match") }
-                        } else { console.log("The user already registred") }
-                    } else { console.log("The emails not match") }
-                } else { console.log("Second name required") }
-            } else { console.log("Name required") }
-        } else { console.log("You must accet the terms") }
+                            } else {
+                                mensajeError(window, document, jQuery, "warning", "User and password does not match");
+                                console.log("User and password not match")
+                            }
+                        } else {
+                            mensajeError(window, document, jQuery, "error", "The user already registred");
+                            console.log("The user already registred")
+                        }
+                    } else {
+                        mensajeError(window, document, jQuery, "error", "The emails not match");
+                        console.log("The emails not match")
+                    }
+                } else {
+                    mensajeError(window, document, jQuery, "warning", "Second name required");
+                    console.log("Second name required")
+                }
+            } else {
+                mensajeError(window, document, jQuery, "warning", "Name required");
+                console.log("Name required")
+            }
+        } else {
+            mensajeError(window, document, jQuery, "warning", "You must accet the terms");
+            console.log("You must accet the terms")
+        }
     }
     emailNotExistInDB(value) {
         if (leerUsuarioBDD(value) === null) {
@@ -244,7 +265,7 @@ function readStatusLogin() {
     }
 
 }
-function iconClearSesion(){
+function iconClearSesion() {
     localStorage.removeItem("logged");
     document.getElementsByClassName("iconuser")[0].innerHTML = "";
     botonLogIn.querySelector("a").innerText = "Login"
@@ -253,6 +274,8 @@ function iconClearSesion(){
 
 }
 readStatusLogin()
+
+// mensajeError(window, document, jQuery, "error", "error")
 
 //buscar per codi de barras
 // https://world.openfoodfacts.org/api/v0/product/${barcode}.json
