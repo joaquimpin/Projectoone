@@ -275,11 +275,3 @@ function iconClearSesion() {
 }
 readStatusLogin()
 
-// mensajeError(window, document, jQuery, "error", "error")
-
-//buscar per codi de barras
-// https://world.openfoodfacts.org/api/v0/product/${barcode}.json
-
-//restultats random per carrusel
-//https://robotoff.openfoodfacts.org/api/v1/questions/random?country=en:united-states&lang=en&count=5&insight_types=category
-
