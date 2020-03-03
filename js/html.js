@@ -260,9 +260,3 @@ readStatusLogin()
 //restultats random per carrusel
 //https://robotoff.openfoodfacts.org/api/v1/questions/random?country=en:united-states&lang=en&count=5&insight_types=category
 
-
-//html 5
-
-// <input id="password" name="password" type="password" pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Must have at least 6 characters' : ''); if(this.checkValidity()) form.password_two.pattern = this.value;" placeholder="Password" required>
-
-// <input id="password_two" name="password_two" type="password" pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Please enter the same Password as above' : '');" placeholder="Verify Password" required></input>
