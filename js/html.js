@@ -10,11 +10,11 @@ let spin = ["borrar", "<div class='loader'>Loading...</div>"] //
 let actualUserLogged
 let principal = ["h-50 d-flex align-items-center borrar", " <div class= 'container '> <div class= 'row ' id= 'fasdfsd '> <div class= 'mx-auto text-center col-md-6 '> <h1 class= 'display-4 text-dark '>FoodSearch</h1> <p class= 'lead text-primary '>Lead paragraph -&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> </div> </div> </div>"]
 let login = ["py-5 text-center text-white borrar", "<div class='container'> <div class='row'> <div class='p-5 col-lg-6 col-10 mx-auto border'> <h1 class='mb-4 text-secondary'>Login</h1> <form> <div class='form-group'> <input type='email' class='form-control email' placeholder='Email' id='form14'> </div> <div class='form-group'> <input type='password' class='form-control password' placeholder='Password' id='form15'> <small class='form-text text-muted text-right'>  <a class='Register btn'>Don't have account? Register now</a> </small> </div> <a class='btn btn-primary login'>Enter</a> </form> </div> </div>"]
-let resultadosbusqueda = ["h-50 d-flex align-items-center ", "<div>nothing to show</div> "]
+let resultadosbusqueda = ["h-50 d-flex align-items-center ", "<div>future advanced search</div> "]
 let contacto = ["py-3 text-center borrar", " <div class='container'><div class='row'><div class='mx-auto p-4 col-md-7'><h1 class='mb-4'>I am so happy</h1><form><div class='form-group'> <input type='email' class='form-control' id='form33' placeholder='Your Email'> </div><div class='form-group'> <input type='text' class='form-control' id='form34' placeholder='Subject'> </div><div class='form-group'> <textarea class='form-control' id='form35' rows='3' placeholder='Your message'></textarea> </div> <button type='submit' class='btn btn-block btn-outline-info'>Send</button></form></div></div></div>"]
 let faq = ["py-5 borrar", "<div class='container'> <div class='row'> <div class='col-md-12'> <h1 class='display-4 text-center'>FaQ's</h1> </div> </div> </div> <div class='container'> <div class='row'> <div class='mx-auto col-md-8'> <h1 class='mb-3'>I lie close to the earth, a thousand unknown plants are noticed by me.</h1> <p class='lead'>When, while the lovely valley teems with vapour around me. </p> </div> </div> <div class='row'> <div class='mx-auto col-md-8'> <h1 class='mb-3'>I lie close to the earth, a thousand unknown plants are noticed by me.</h1> <p class='lead'>When, while the lovely valley teems with vapour around me. </p> </div> </div> <div class='row'> <div class='mx-auto col-md-8'> <h1 class='mb-3'>I lie close to the earth, a thousand unknown plants are noticed by me.</h1> <p class='lead'>When, while the lovely valley teems with vapour around me. </p> </div> </div> <div class='row'> <div class='mx-auto col-md-8'> <h1 class='mb-3'>I lie close to the earth, a thousand unknown plants are noticed by me.</h1> <p class='lead'>When, while the lovely valley teems with vapour around me. </p> </div> </div> </div>"]
 let register = ["py-5 text-center", '<div class="container"> <div class="row"> <div class="mx-auto col-lg-6 col-10"> <h1>Register</h1> <p class="mb-3">When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees.</p> <form class="text-left"> <div class="form-group "> <label for="form16">Your Name</label> <input type="text" class="form-control name" id="form16" placeholder="You IronHacker name" required> </div> <div class="form-group "> <label for="form17">Second Name</label> <input type="text" class="form-control secondname" id="form17" placeholder="Werther Inc." required> </div> <div class="form-row"> <div class="form-group col-md-6 "> <label for="form18">Your email</label> <input type="email" class="form-control email" id="form18" placeholder="j.goethe@werther.com" required pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}"> </div> <div class="form-group col-md-6 "> <label for="form19" required>Confirm email</label> <input type="email" class="form-control confirmemail" id="form24" placeholder="j.goethe@werther.com" required> </div> </div> <div class="form-row"> <div class="form-group col-md-6 "> <label for="form24" required>Password</label> <input type="password" class="form-control password" id="form20" placeholder="••••" required pattern=[a-zA-Z0-10]{5,} title="Five or more characters"> </div> <div class="form-group col-md-6 "> <label for="form20">Confirm Password</label> <input type="password" class="form-control confirmpassword" id="form26" placeholder="••••" required> </div> </div> <div class="form-group"> <div class="form-check "> <input class="form-check-input termandconditions" type="checkbox" id="form21"> <label class="form-check-label" for="form22"> I Agree with <a class="btn conditions">Term and Conditions</a> of the service </label> </div> </div> <a class="btn btn-primary signup">Sign Up</a> </form> </div> </div> </div>']
-let product = ["py-5 borrar", "<div class='container'> <div class='row'> <div class='px-lg-5 d-flex flex-column justify-content-center col-lg-6'> <h1 contenteditable='true'>Nutella</h1> <p class='mb-3 lead' contenteditable='true'>Código de barras: 3017620422003 (EAN / EAN-13)</p> </div> <div class='col-lg-6'> <img class='img-fluid d-block' src='https://static.pingendo.com/cover-moon.svg'> </div> </div> </div> <div class='container'> <div class='row'> <div class='col-md-12'> <div class='table-responsive'> <table class='table table-striped table-dark'> <thead> <tr> <th scope='col'> </th> <th scope='col'>${element.name}</th> <th scope='col'>Last</th> </tr> </thead> <tbody> <tr> <th scope='row'>1</th> <td>Mark</td> <td>Otto</td> </tr> <tr> <th scope='row'>2</th> <td>Jacob</td> <td>Thornton</td> </tr> <tr> <th scope='row'>3</th> <td>Larry</td> <td>the Bird</td> </tr> </tbody> </table> </div> </div> </div> </div>"]
+let product = ["py-5 borrar", "<div class='container'> <div class='row'> <div class='px-lg-5 d-flex flex-column justify-content-center col-lg-6'> <h1 contenteditable='true'>Nutella</h1> <p class='mb-3 lead' contenteditable='true'>Código de barras: 3017620422003 (EAN / EAN-13)</p> </div> </div> </div> <div class='container'> <div class='row'> <div class='col-md-12'> <div class='table-responsive'> <table class='table table-striped table-dark'> <thead> <tr> <th scope='col'> </th> <th scope='col'>${element.name}</th> <th scope='col'>Last</th> </tr> </thead> <tbody> <tr> <th scope='row'>1</th> <td>Mark</td> <td>Otto</td> </tr> <tr> <th scope='row'>2</th> <td>Jacob</td> <td>Thornton</td> </tr> <tr> <th scope='row'>3</th> <td>Larry</td> <td>the Bird</td> </tr> </tbody> </table> </div> </div> </div> </div>"]
 botonPrincipal.addEventListener("click", function () { cargarHtml(principal) })
 botonLogIn.addEventListener("click", function () { eventobotonlogin(botonLogIn.querySelector("a").innerText) })
 botonBusqueda.addEventListener("click", function () { cargarHtml(resultadosbusqueda) })
@@ -147,9 +147,9 @@ class LoginValidator {
 
             }
         } else {
-            mensajeError(window, document, jQuery, "error", "User does not exist");console.log("usuari no existent a la bdd")
+            mensajeError(window, document, jQuery, "error", "User does not exist"); console.log("usuari no existent a la bdd")
         }
-       
+
     }
 
 }
@@ -157,46 +157,70 @@ class SignupValidator {
 
     crearUsuario(nombre, apellido, email, verifymail, password, verifypassword, termandconditions) {
 
-        if (termandconditions) {
-            if (nombre != "") {
-                if (apellido != "") {
-                    if (this.verifymail(email, verifymail)) {
-                        if (this.emailNotExistInDB(email)) {
-                            if (this.verifypassword(password, verifypassword)) {
-                                mensajeError(window, document, jQuery, "success", "User created");
-                                cargarHtml(spin)
-                                let createNewUser = new Usuario
-                                createNewUser.nombre = nombre
-                                createNewUser.apellido = apellido
-                                createNewUser.password = password
-                                createNewUser.email = email
-                                this.grabrarUsuario(email, JSON.stringify(createNewUser))
-                                setTimeout(function () {
-                                    cargarHtml(login);
-                                }, 2000);
+        if (nombre != "") {
+            if (apellido != "") {
+                if (email != "") {
+                    if (verifymail != "") {
+                        if (password != "") {
+                            if (verifypassword != "") {
+                                if (termandconditions) {
+                                    if (this.verifymail(email, verifymail)) {
+                                        if (this.emailNotExistInDB(email)) {
+                                            if (this.verifypassword(password, verifypassword)) {
+                                                mensajeError(window, document, jQuery, "success", "User created");
+                                                cargarHtml(spin)
+                                                let createNewUser = new Usuario
+                                                createNewUser.nombre = nombre
+                                                createNewUser.apellido = apellido
+                                                createNewUser.password = password
+                                                createNewUser.email = email
+                                                this.grabrarUsuario(email, JSON.stringify(createNewUser))
+                                                setTimeout(function () {
+                                                    cargarHtml(login);
+                                                }, 2000);
+
+                                            }
+                                        } else {
+                                            let mensaje = "User already registred"
+                                            mensajeError(window, document, jQuery, "error", mensaje);
+                                            console.log(mensaje)
+                                        }
+                                    }
+                                } else {
+                                    let mensaje = "Accept terms and conditions"
+                                    mensajeError(window, document, jQuery, "error", mensaje);
+                                    console.log(mensaje)
+                                }
                             } else {
-                                mensajeError(window, document, jQuery, "warning", "User and password does not match");
-                                console.log("User and password not match")
+                                let mensaje = "Verify mail not be blank"
+                                mensajeError(window, document, jQuery, "error", mensaje);
+                                console.log(mensaje)
                             }
                         } else {
-                            mensajeError(window, document, jQuery, "error", "The user already registred");
-                            console.log("The user already registred")
+                            let mensaje = "Verify password not be blank"
+                            mensajeError(window, document, jQuery, "error", mensaje);
+                            console.log(mensaje)
                         }
                     } else {
-                        mensajeError(window, document, jQuery, "error", "The emails not match");
-                        console.log("The emails not match")
+                        let mensaje = "Enter your password"
+                        mensajeError(window, document, jQuery, "error", mensaje);
+                        console.log(mensaje)
                     }
+
                 } else {
-                    mensajeError(window, document, jQuery, "warning", "Second name required");
-                    console.log("Second name required")
+                    let mensaje = "Enter your email"
+                    mensajeError(window, document, jQuery, "error", mensaje);
+                    console.log(mensaje)
                 }
             } else {
-                mensajeError(window, document, jQuery, "warning", "Name required");
-                console.log("Name required")
+                let mensaje = "Enter your second name"
+                mensajeError(window, document, jQuery, "error", mensaje);
+                console.log(mensaje)
             }
         } else {
-            mensajeError(window, document, jQuery, "warning", "You must accet the terms");
-            console.log("You must accet the terms")
+            let mensaje = "Enter your name"
+            mensajeError(window, document, jQuery, "error", mensaje);
+            console.log(mensaje)
         }
     }
     emailNotExistInDB(value) {
@@ -212,18 +236,45 @@ class SignupValidator {
 
     verifypassword(password, verifypassword) {
         let passwordRegex = RegExp("[a-zA-Z0-10]{5,}")
-        if (password === verifypassword && passwordRegex.test(password)) {
-            return true
+        if (password === verifypassword) {
+
+            if (passwordRegex.test(password)) {
+                return true
+            } else {
+                let mensaje = "Passwords minium lenth 5 digits"
+                mensajeError(window, document, jQuery, "error", mensaje);
+                console.log(mensaje)
+            }
+
+
+        } else {
+            let mensaje = "Passwords does not match"
+            mensajeError(window, document, jQuery, "error", mensaje);
+            console.log(mensaje)
+            return false
+
         }
-        return false
     }
     verifymail(email, verifymail) {
         let emailRegex = RegExp("[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}")
-        if (email === verifymail && emailRegex.test(email)) {
-            return true
+        if (email === verifymail) {
+            if (emailRegex.test(email)) {
+                return true
+
+            } else {
+                let mensaje = "Email does not match"
+                mensajeError(window, document, jQuery, "error", mensaje);
+                console.log(mensaje)
+                return false
+
+            }
+        } else {
+            let mensaje = "Email not valid"
+            mensajeError(window, document, jQuery, "error", mensaje);
+            console.log(mensaje)
+            return false
 
         }
-        return false
     }
 }
 function leerUsuarioBDD(usuario) {
