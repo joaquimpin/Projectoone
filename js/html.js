@@ -233,7 +233,7 @@ function writeStatusLogin(user) {
     localStorage.setItem("logged", user)
 }
 function readStatusLogin() {
-    if (localStorage.getItem('logged') != 'null') {
+    if (localStorage.getItem('logged') != undefined) {
         console.log("recuperando usuario loginado")
         userlogged(JSON.parse(leerUsuarioBDD(localStorage.getItem('logged'))))
         document.getElementsByClassName("iconuser")[0].addEventListener("click", function () {
@@ -245,7 +245,7 @@ function readStatusLogin() {
 
 }
 function iconClearSesion(){
-    localStorage.setItem("logged", null);
+    localStorage.removeItem("logged");
     document.getElementsByClassName("iconuser")[0].innerHTML = "";
     botonLogIn.querySelector("a").innerText = "Login"
     document.getElementsByClassName("login")[0].addEventListener("click", function () { loginaccount() })
