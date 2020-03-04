@@ -81,16 +81,18 @@ function registerUser() {
 }
 function generarHtmlBusqueda(arrayelements) {
     let article = []
-    for (let i = 0; i < arrayProductosRespuesta.length; i++) {
-        const element = arrayProductosRespuesta[i];
+    console.log(arrayProductosRespuesta.length)
+    for (let i = 0; i < arrayelements.length; i++) {
+        const element = arrayelements[i];
         let base = `<div class="col-lg-3 col-md-1 p-3"> <div class="row"> <div class="col-3 p-0"> <img class="img-fluid d-block" src="${element.image_url}"> </div> <div class="col-9"> <p class="lead mb-1"> <b>${i}</b> </p> <p class="mb-0">${element.product_name}</p> </div> </div></div>`
         article += base
     }
-    resultadosbusqueda = [`py-5 `, `<div class="container"> <div class="row"> <div class="col-md-12 text-center"> <h1>Search result:</h1> </div> </div> <div class="row justify-content-center"> ${article} <h1>${element.length}</h1> </div></div>`]
+    resultadosbusqueda = [`py-5 `, `<div class="container"> <div class="row"> <div class="col-md-12 text-center"> <h1>Search result:</h1> </div> </div> <div class="row justify-content-center"> ${article}</div></div>`]
 
     cargarHtml(resultadosbusqueda)
     crearEventosArticle()
 }
+
 
 function cargarProducto(posicionArray) {
     let element = arrayProductosRespuesta[posicionArray]
