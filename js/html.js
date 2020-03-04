@@ -95,11 +95,17 @@ function generarHtmlBusqueda(arrayelements) {
 function cargarProducto(posicionArray) {
     let element = arrayProductosRespuesta[posicionArray]
     product[1] = `<div class="container"> <div class="row"> <div class="px-lg-5 d-flex flex-column justify-content-center col-lg-6"> <h1 >${element.product_name}</h1><p class="mb-3 lead" ><img alt='Barcode Generator TEC-IT'
-    src='https://barcode.tec-it.com/barcode.ashx?data=${element.code}&code=Code128&dpi=96&dataseparator='/> <p class="mb-3 lead" > Ingredients :${element.ingredients_text_with_allergens_en}</p> </div> <div class="col-lg-6"><img class="img-fluid d-block" src=${element.image_url}></div> </div> </div> <div class="container"><div class="row"> <div class="col-md-12"><div class="table-responsive"> <table class="table table-striped table-light "><thead> <tr> <th scope="col">Nutrition facts	</th><th scope="col">As sold for 100 g / 100 ml</th></tr> </thead> <tbody> <tr> <th scope="row">Energy		</th><td>${element.nutriments.energy_value}${element.nutriments.energy_unit}</td></tr><tr> <th scope="row">Fat	</th> <td>${element.nutriments.fat_value}${element.nutriments.fat_unit}</td> </tr></tr> <tr> <th scope="row">Carbohydrates	</th> <td>${element.nutriments.carbohydrates_value}${element.nutriments.carbohydrates_unit}</td></tr> <tr> <th scope="row">-sugars	</th> <td>${element.nutriments.sugars_value}${element.nutriments.sugars_unit}</td> </tr> <tr> <th scope="row">Proteins	</th> <td>${element.nutriments.proteins_100g}${element.nutriments.proteins_unit}</td> </tr><tr> <th scope="row">Salt	</th> <td>${element.nutriments.salt_100g}${element.nutriments.salt_unit}</td> </tr><tr> <th scope="row"> Sodium	</th> <td>${element.nutriments.sodium_100g}${element.nutriments.sodium_unit}</td> </tr> </tbody> </table> </div> </div> </div> </div>`
+    src='https://barcode.tec-it.com/barcode.ashx?data=${element.code}&code=Code128&dpi=96&dataseparator='/> <p class="mb-3 lead" > Ingredients :${filterUndefined(element.ingredients_text_with_allergens_en)}</p> </div> <div class="col-lg-6"><img class="img-fluid d-block" src=${element.image_url}></div> </div> </div> <div class="container"><div class="row"> <div class="col-md-12"><div class="table-responsive"> <table class="table table-striped table-light "><thead> <tr> <th scope="col">Nutrition facts	</th><th scope="col">As sold for 100 g / 100 ml</th></tr> </thead> <tbody> <tr> <th scope="row">Energy		</th><td>${element.nutriments.energy_value}${element.nutriments.energy_unit}</td></tr><tr> <th scope="row">Fat	</th> <td>${element.nutriments.fat_value}${element.nutriments.fat_unit}</td> </tr></tr> <tr> <th scope="row">Carbohydrates	</th> <td>${element.nutriments.carbohydrates_value}${element.nutriments.carbohydrates_unit}</td></tr> <tr> <th scope="row">-sugars	</th> <td>${element.nutriments.sugars_value}${element.nutriments.sugars_unit}</td> </tr> <tr> <th scope="row">Proteins	</th> <td>${element.nutriments.proteins_100g}${element.nutriments.proteins_unit}</td> </tr><tr> <th scope="row">Salt	</th> <td>${element.nutriments.salt_100g}${element.nutriments.salt_unit}</td> </tr><tr> <th scope="row"> Sodium	</th> <td>${element.nutriments.sodium_100g}${element.nutriments.sodium_unit}</td> </tr> </tbody> </table> </div> </div> </div> </div>`
     cargarHtml(product)
 }
 
+function filterUndefined(value){
+    if(value==undefined||value==null){
+    return "information not available"
+    }
 
+    return value
+}
 
 // const fetch = require("node-fetch");
 function search(query) {
