@@ -141,19 +141,7 @@ function generarHtmlBusqueda(arrayelements, totalelements, paginaactual) {
     cargarHtml(resultadosbusqueda)
     crearEventosArticle()
 }
-// function pintarBoton(num, max){
-//     num = Number(num)
-//     let answer = "";
-//     if (num - 1 > 0){ answer += `<li class="page-item active"> <a class="page-link" id=Prev>Prev</a> </li> <li class="page-item active"> <a class="page-link" id=${num - 1}>${num -1}</a> </li>`}
 
-//     answer += `<li class="page-item active"> <a class="page-link" id=${num }>${num}</a> </li>`
-
-//     if (num +1 <= max){ answer += `<li class="page-item active"> <a class="page-link" id=${num + 1}>${num +1}</a> </li>`}
-
-//     if (num +2 <= max){ answer += `<li class="page-item active"> <a class="page-link" id=${num + 2}>${num +2}</a> </li>`}
-
-// return answer 
-// }
 
 function generarPiePagina(total, actual) {
     let botonespie = '<div class="row justify-content-center"> <div ><ul class="pagination">'
