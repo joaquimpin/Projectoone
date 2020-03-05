@@ -47,14 +47,14 @@ function cargarHtml(elemento) {
 function crearEventosArticle() {
     let arrayarticle = mainHtml.getElementsByClassName("col-lg-3 col-md-1 p-3")
     try {
-        document.getElementById("prev").addEventListener("click", function () { console.log(ultimaBusqueda); search(ultimaBusqueda, elementosPorPagina, paginaActualVisualitzada - 1) })
+        document.getElementById("prev").addEventListener("click", function () { search(ultimaBusqueda, elementosPorPagina, paginaActualVisualitzada - 1) })
         document.getElementById("menos1").addEventListener("click", function () { search(ultimaBusqueda, elementosPorPagina, paginaActualVisualitzada - 1) })
 
     } catch (error) {
 
     }
     try {
-        document.getElementById("mas1").addEventListener("click", function () { console.log(ultimaBusqueda, elementosPorPagina,paginaActualVisualitzada); search(ultimaBusqueda, elementosPorPagina, paginaActualVisualitzada + 1) })
+        document.getElementById("mas1").addEventListener("click", function () { elementosPorPagina,paginaActualVisualitzada); search(ultimaBusqueda, elementosPorPagina, paginaActualVisualitzada + 1) })
 
     } catch (error) {
 
@@ -222,12 +222,12 @@ class LoginValidator {
                     }
                 } else {
                     mensajeError(window, document, jQuery, "error", "Password error");
-                    console.log("Password error")
+                   // console.log("Password error")
                 }
 
             }
         } else {
-            mensajeError(window, document, jQuery, "error", "User does not exist"); console.log("usuari no existent a la bdd")
+            mensajeError(window, document, jQuery, "error", "User does not exist"); //console.log("usuari no existent a la bdd")
         }
 
     }
@@ -263,44 +263,44 @@ class SignupValidator {
                                         } else {
                                             let mensaje = "User already registred"
                                             mensajeError(window, document, jQuery, "error", mensaje);
-                                            console.log(mensaje)
+                                           // console.log(mensaje)
                                         }
                                     }
                                 } else {
                                     let mensaje = "Accept terms and conditions"
                                     mensajeError(window, document, jQuery, "error", mensaje);
-                                    console.log(mensaje)
+                                    //console.log(mensaje)
                                 }
                             } else {
                                 let mensaje = "Verify mail not be blank"
                                 mensajeError(window, document, jQuery, "error", mensaje);
-                                console.log(mensaje)
+                                //console.log(mensaje)
                             }
                         } else {
                             let mensaje = "Verify password not be blank"
                             mensajeError(window, document, jQuery, "error", mensaje);
-                            console.log(mensaje)
+                           // console.log(mensaje)
                         }
                     } else {
                         let mensaje = "Enter your password"
                         mensajeError(window, document, jQuery, "error", mensaje);
-                        console.log(mensaje)
+                       // console.log(mensaje)
                     }
 
                 } else {
                     let mensaje = "Enter your email"
                     mensajeError(window, document, jQuery, "error", mensaje);
-                    console.log(mensaje)
+                   // console.log(mensaje)
                 }
             } else {
                 let mensaje = "Enter your second name"
                 mensajeError(window, document, jQuery, "error", mensaje);
-                console.log(mensaje)
+               // console.log(mensaje)
             }
         } else {
             let mensaje = "Enter your name"
             mensajeError(window, document, jQuery, "error", mensaje);
-            console.log(mensaje)
+          //  console.log(mensaje)
         }
     }
     emailNotExistInDB(value) {
@@ -323,14 +323,14 @@ class SignupValidator {
             } else {
                 let mensaje = "Passwords minium lenth 5 digits"
                 mensajeError(window, document, jQuery, "error", mensaje);
-                console.log(mensaje)
+              //  console.log(mensaje)
             }
 
 
         } else {
             let mensaje = "Passwords does not match"
             mensajeError(window, document, jQuery, "error", mensaje);
-            console.log(mensaje)
+          //  console.log(mensaje)
             return false
 
         }
@@ -344,14 +344,14 @@ class SignupValidator {
             } else {
                 let mensaje = "Email does not match"
                 mensajeError(window, document, jQuery, "error", mensaje);
-                console.log(mensaje)
+               // console.log(mensaje)
                 return false
 
             }
         } else {
             let mensaje = "Email not valid"
             mensajeError(window, document, jQuery, "error", mensaje);
-            console.log(mensaje)
+          //  console.log(mensaje)
             return false
 
         }
@@ -381,12 +381,12 @@ function userlogged(userobject) {
 }
 
 function writeStatusLogin(user) {
-    console.log(user)
+   // console.log(user)
     localStorage.setItem("logged", user)
 }
 function readStatusLogin() {
     if (localStorage.getItem('logged') != undefined) {
-        console.log("recuperando usuario loginado")
+        //console.log("recuperando usuario loginado")
         userlogged(JSON.parse(leerUsuarioBDD(localStorage.getItem('logged'))))
         document.getElementsByClassName("iconuser")[0].addEventListener("click", function () {
             logout()
