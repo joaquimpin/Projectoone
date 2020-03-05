@@ -54,7 +54,7 @@ function crearEventosArticle() {
 
     }
     try {
-        document.getElementById("mas1").addEventListener("click", function () { elementosPorPagina,paginaActualVisualitzada); search(ultimaBusqueda, elementosPorPagina, paginaActualVisualitzada + 1) })
+        document.getElementById("mas1").addEventListener("click", function () { elementosPorPagina,paginaActualVisualitzada; search(ultimaBusqueda, elementosPorPagina, paginaActualVisualitzada + 1) })
 
     } catch (error) {
 
