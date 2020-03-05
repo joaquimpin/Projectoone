@@ -370,7 +370,7 @@ function userlogged(userobject) {
         botonLogIn.querySelector("a").innerText = "Account"
         eventobotonlogin(botonLogIn.querySelector("a").innerText)
         document.getElementsByClassName("iconuser")[0].addEventListener("click", function () {
-            iconClearSesion()
+            logout()
         })
         cargarHtml(logedin)
         setTimeout(function () {
@@ -389,15 +389,16 @@ function readStatusLogin() {
         console.log("recuperando usuario loginado")
         userlogged(JSON.parse(leerUsuarioBDD(localStorage.getItem('logged'))))
         document.getElementsByClassName("iconuser")[0].addEventListener("click", function () {
-            iconClearSesion()
+            logout()
         })
         crearEventosLogin()
 
     }
 
 }
-function iconClearSesion() {
+function logout() {
     localStorage.removeItem("logged");
+    mensajeError(window, document, jQuery, "succes", "Logout");
     document.getElementsByClassName("iconuser")[0].innerHTML = "";
     botonLogIn.querySelector("a").innerText = "Login"
     document.getElementsByClassName("login")[0].addEventListener("click", function () { loginaccount() })
