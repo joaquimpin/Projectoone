@@ -7,7 +7,10 @@ let botonFaq = document.getElementById("FaQ")
 let submmitButton = document.getElementById("submit")
 let searchbar = document.getElementById("searchtext")
 let spin = ["borrar", "<div class='loader'>Loading...</div>"] //
+let paginaActualVisualitzada = 0
+let ultimaBusqueda =""
 let actualUserLogged
+let elementosPorPagina = 20
 let principal = ["h-50 d-flex align-items-center borrar", " <div class= 'container '> <div class= 'row ' id= 'fasdfsd '> <div class= 'mx-auto text-center col-md-6 '> <h1 class= 'display-4 text-dark '>FoodSearch</h1> <p class= 'lead text-primary '>Lead paragraph -&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> </div> </div> </div>"]
 let login = ["py-5 text-center text-white borrar", "<div class='container'> <div class='row'> <div class='p-5 col-lg-6 col-10 mx-auto border'> <h1 class='mb-4 text-secondary'>Login</h1> <form> <div class='form-group'> <input type='email' class='form-control email' placeholder='Email' id='form14'> </div> <div class='form-group'> <input type='password' class='form-control password' placeholder='Password' id='form15'> <small class='form-text text-muted text-right'>  <a class='Register btn'>Don't have account? Register now</a> </small> </div> <a class='btn btn-primary login'>Enter</a> </form> </div> </div>"]
 let resultadosbusqueda = ["h-50 d-flex align-items-center ", "<div>future advanced search</div> "]
@@ -17,25 +20,23 @@ let register = ["py-5 text-center", '<div class="container"> <div class="row"> <
 let product = ["py-5 borrar", "<div class='container'> <div class='row'> <div class='px-lg-5 d-flex flex-column justify-content-center col-lg-6'> <h1 contenteditable='true'>Nutella</h1> <p class='mb-3 lead' contenteditable='true'>Código de barras: 3017620422003 (EAN / EAN-13)</p> </div> </div> </div> <div class='container'> <div class='row'> <div class='col-md-12'> <div class='table-responsive'> <table class='table table-striped table-dark'> <thead> <tr> <th scope='col'> </th> <th scope='col'>${element.name}</th> <th scope='col'>Last</th> </tr> </thead> <tbody> <tr> <th scope='row'>1</th> <td>Mark</td> <td>Otto</td> </tr> <tr> <th scope='row'>2</th> <td>Jacob</td> <td>Thornton</td> </tr> <tr> <th scope='row'>3</th> <td>Larry</td> <td>the Bird</td> </tr> </tbody> </table> </div> </div> </div> </div>"]
 botonPrincipal.addEventListener("click", function () { cargarHtml(principal) })
 botonLogIn.addEventListener("click", function () { eventobotonlogin(botonLogIn.querySelector("a").innerText) })
-botonBusqueda.addEventListener("click", function () { cargarHtml(resultadosbusqueda);crearEventosArticle() })
+botonBusqueda.addEventListener("click", function () { cargarHtml(resultadosbusqueda); crearEventosArticle() })
 botonContacto.addEventListener("click", function () { cargarHtml(contacto) })
 botonFaq.addEventListener("click", function () { cargarHtml(faq) })
-submmitButton.addEventListener("click", function () { search(searchbar.value) })
-// searchbar.value
-// submmitButton.addEventListener("click",function(){search(searchbar.value)})
+submmitButton.addEventListener("click", function () {  search(searchbar.value, elementosPorPagina, 1) })
+
 cargarHtml(principal)
 let arrayProductosRespuesta = []
 function eventobotonlogin(contenido) {
-    console.log(contenido)
     if (contenido === "Login") {
         cargarHtml(login); crearEventosLogin()
     } else {
-        console.log("Account mode")
+      //  console.log("Account mode")
     }
 }
 
 function cargarHtml(elemento) {
-    console.log("carrgant nou HTMl")
+    //console.log("carregant nou HTMl")
     mainHtml.innerHTML = ""
     mainHtml.classList = elemento[0]
     mainHtml.innerHTML = elemento[1]
@@ -44,10 +45,44 @@ function cargarHtml(elemento) {
 
 function crearEventosArticle() {
     let arrayarticle = mainHtml.getElementsByClassName("col-lg-3 col-md-1 p-3")
+    try {
+        document.getElementById("prev").addEventListener("click", function () { console.log(ultimaBusqueda); search(ultimaBusqueda, elementosPorPagina, paginaActualVisualitzada - 1) })
+        document.getElementById("menos1").addEventListener("click", function () { search(ultimaBusqueda, elementosPorPagina, paginaActualVisualitzada - 1) })
+
+    } catch (error) {
+
+    }
+    try {
+        document.getElementById("mas1").addEventListener("click", function () { console.log(ultimaBusqueda, elementosPorPagina,paginaActualVisualitzada); search(ultimaBusqueda, elementosPorPagina, paginaActualVisualitzada + 1) })
+
+    } catch (error) {
+
+    }
+    try {
+        document.getElementById("mas2").addEventListener("click", function () { search(ultimaBusqueda, elementosPorPagina, paginaActualVisualitzada + 2) })
+
+    } catch (error) {
+
+    }
+    try {
+        document.getElementById("mas3").addEventListener("click", function () { search(ultimaBusqueda, elementosPorPagina, paginaActualVisualitzada + 3) })
+
+    } catch (error) {
+
+    }
+    try {
+        document.getElementById("next").addEventListener("click", function () { search(ultimaBusqueda, elementosPorPagina, paginaActualVisualitzada + 1) })
+
+    } catch (error) {
+
+    }
+
+
     for (let i = 0; i < arrayarticle.length; i++) {
         arrayarticle[i].addEventListener("click", function () { cargarProducto(i) });
 
     }
+
 }
 
 function crearEventosLogin() {
@@ -81,9 +116,9 @@ function registerUser() {
 }
 function generarHtmlBusqueda(arrayelements, totalelements, paginaactual) {
     let article = []
- 
 
-    piePaginacion = generarPiePagina(totalelements,paginaactual)
+
+    piePaginacion = generarPiePagina(totalelements, paginaactual)
 
     for (let i = 0; i < arrayelements.length; i++) {
         const element = arrayelements[i];
@@ -95,35 +130,35 @@ function generarHtmlBusqueda(arrayelements, totalelements, paginaactual) {
     cargarHtml(resultadosbusqueda)
     crearEventosArticle()
 }
-function generarPiePagina(total,actual){
-    let botonespie ='<div class="row justify-content-center"> <div ><ul class="pagination">'
-    
-    let numeroDePaginasTotals = Math.floor(total / actual)
+// function pintarBoton(num, max){
+//     num = Number(num)
+//     let answer = "";
+//     if (num - 1 > 0){ answer += `<li class="page-item active"> <a class="page-link" id=Prev>Prev</a> </li> <li class="page-item active"> <a class="page-link" id=${num - 1}>${num -1}</a> </li>`}
 
-    if (actual >= 1) {
-        botonespie+=`<li class="page-item"> <a class="page-link d-none" id=1>Prev</a> </li>`
+//     answer += `<li class="page-item active"> <a class="page-link" id=${num }>${num}</a> </li>`
 
-    } else {
-         botonespie+=`<li class="page-item"> <a class="page-link " id=Prev >Prev</a> </li>`
+//     if (num +1 <= max){ answer += `<li class="page-item active"> <a class="page-link" id=${num + 1}>${num +1}</a> </li>`}
 
+//     if (num +2 <= max){ answer += `<li class="page-item active"> <a class="page-link" id=${num + 2}>${num +2}</a> </li>`}
+
+// return answer 
+// }
+
+function generarPiePagina(total, actual) {
+    let botonespie = '<div class="row justify-content-center"> <div ><ul class="pagination">'
+    actual = Number(actual)
+    let numeroDePaginasTotals = Math.floor(total / 20)
+    if (actual - 1 > 0) { botonespie += `<li class="page-item "> <a class="page-link prev" id=prev>Prev</a> </li> <li class="page-item prev"> <a class="page-link" id=menos1 >${actual - 1}</a> </li>` }
+    botonespie += `<li class="page-item active"> <a class="page-link actual" id=actual>${actual}</a> </li>`
+    if (actual + 1 <= numeroDePaginasTotals) { botonespie += `<li class="page-item "> <a class="page-link plus1"id=mas1 >${actual + 1}</a> </li>` }
+    if (actual + 2 <= numeroDePaginasTotals) { botonespie += `<li class="page-item "> <a class="page-link plus2"id=mas2 >${actual + 2}</a> </li>` }
+    if (actual === 1 && actual + 3 <= numeroDePaginasTotals) {
+        botonespie += `<li class="page-item "> <a class="page-link plus3" id=mas3 >${actual + 3}</a> </li>`
     }
-        if(numeroDePaginasTotals>4){
-             botonespie+=`<li class="page-item"> <a class="page-link " id=${actual-1} >${actual-1}</a> </li>`
-             botonespie+=`<li class="page-item"> <a class="page-link " id=${actual}>${actual}</a> </li>`
-             botonespie+=`<li class="page-item active"> <a class="page-link " id=${Number(actual)+1} >${Number(actual)+1}</a> </li>`
-             botonespie+=`<li class="page-item"> <a class="page-link " id=${Number(actual)+2} >${Number(actual)+2}</a> </li>`
-        }
-
-
-
-    if (actual >=numeroDePaginasTotals ) {
-         botonespie+=`<li class="page-item"> <a class="page-link d-none" id=Next>Next</a> </li>`
-
-    } else {
-         botonespie+=`<li class="page-item"> <a class="page-link " id=Next >Next</a> </li>`
-
+    if (actual + 1 <= numeroDePaginasTotals) {
+        botonespie += `<li class="page-item "> <a class="page-link next"id=next >next</a> </li>`
     }
-    return botonespie+'</ul></div></div>'
+    return botonespie + '</ul></div></div>'
 }
 
 
@@ -143,12 +178,15 @@ function filterUndefined(value) {
 }
 
 // const fetch = require("node-fetch");
-function search(query, numberperpagina = 20, paginaactual = 1) {
-    console.log(query)
+function search(query, numberperpagina, paginaactual) {
+    // console.log(query, numberperpagina, paginaactual)
+    searchbar.value = ""
     fetch(`https://es.openfoodfacts.org/cgi/search.pl?search_terms=${query}&page_size=${numberperpagina}&page=${paginaactual}&search_simple=1&json=true`)
         .then(response => response.json())
         .then(data => {
             arrayProductosRespuesta = data.products
+            paginaActualVisualitzada = Number(data.page)
+            ultimaBusqueda = query
             generarHtmlBusqueda(data.products, data.count, data.page)
             return data; // no consigo capturar el return me da undefined a causa de la promise, le he puesto await al llamar a la funcion y tampoco me funciona.
         })
@@ -366,4 +404,5 @@ function iconClearSesion() {
 
 }
 readStatusLogin()
+
 
