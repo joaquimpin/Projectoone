@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post" action="/cgi/search.pl" enctype="multipart/form-data" id="search_form"><div class="row">
+        <div class="large-12 columns">
+    <label for="search_terms2">Search for words present in the product name, generic name, brands, categories, origins and labels</label>
+    <input type="text" name="search_terms2" id="search_terms2" value="">
+        </div>
+    </div>
+    
+    <h3>Criteria</h3>
+    <label>Select products with specific brands, categories, labels, origins of ingredients, manufacturing places etc.</label>
+    <div class="row">
+        <div class="small-12 medium-12 large-6 columns criterion-row" style="padding-top:1rem">
+            <div class="row">
+                <div class="small-12 medium-12 large-5 columns">
+    <select name="tagtype_0" id="tagtype_0">
+    <option value="search_tag">choose a criterion...</option>
+    <option value="brands">brands</option>
+    <option value="categories">categories</option>
+    <option value="packaging">packaging</option>
+    <option value="labels">labels</option>
+    <option value="origins">origins of ingredients</option>
+    <option value="manufacturing_places">manufacturing or processing places</option>
+    <option value="emb_codes">packager codes</option>
+    <option value="purchase_places">purchase places</option>
+    <option value="stores">stores</option>
+    <option value="countries">countries</option>
+    <option value="ingredients">ingredients</option>
+    <option value="additives">additives</option>
+    <option value="allergens">allergens</option>
+    <option value="traces">traces</option>
+    <option value="nutrition_grades">Nutrition grades</option>
+    <option value="nova_groups">NOVA groups</option>
+    <option value="languages">languages</option>
+    <option value="creator">contributors</option>
+    <option value="editors">editors</option>
+    <option value="states">states</option>
+    <option value="popularity">popularity</option>
+    </select>			</div>
+                <div class="small-12 medium-12 large-3 columns">
+    <select name="tag_contains_0" id="tag_contains_0">
+    <option value="contains">contains</option>
+    <option value="does_not_contain">does not contain</option>
+    </select>			</div>
+                <div class="small-12 medium-12 large-4 columns tag-search-criterion">
+                    <input type="text" id="tag_0" name="tag_0" value="" placeholder="value">
+                </div>
+            </div>
+        </div>
+        <div class="small-12 medium-12 large-6 columns criterion-row" style="padding-top:1rem">
+            <div class="row">
+                <div class="small-12 medium-12 large-5 columns">
+    <select name="tagtype_1" id="tagtype_1">
+    <option value="search_tag">choose a criterion...</option>
+    <option value="brands">brands</option>
+    <option value="categories">categories</option>
+    <option value="packaging">packaging</option>
+    <option value="labels">labels</option>
+    <option value="origins">origins of ingredients</option>
+    <option value="manufacturing_places">manufacturing or processing places</option>
+    <option value="emb_codes">packager codes</option>
+    <option value="purchase_places">purchase places</option>
+    <option value="stores">stores</option>
+    <option value="countries">countries</option>
+    <option value="ingredients">ingredients</option>
+    <option value="additives">additives</option>
+    <option value="allergens">allergens</option>
+    <option value="traces">traces</option>
+    <option value="nutrition_grades">Nutrition grades</option>
+    <option value="nova_groups">NOVA groups</option>
+    <option value="languages">languages</option>
+    <option value="creator">contributors</option>
+    <option value="editors">editors</option>
+    <option value="states">states</option>
+    <option value="popularity">popularity</option>
+    </select>			</div>
+                <div class="small-12 medium-12 large-3 columns">
+    <select name="tag_contains_1" id="tag_contains_1">
+    <option value="contains">contains</option>
+    <option value="does_not_contain">does not contain</option>
+    </select>			</div>
+                <div class="small-12 medium-12 large-4 columns tag-search-criterion">
+                    <input type="text" id="tag_1" name="tag_1" value="" placeholder="value">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <h3>Ingredients</h3>
+    
+    <div class="row">
+        <div class="small-12 medium-12 large-6 columns">
+            <label>Additives</label>
+                <input type="radio" name="additives" value="without" id="without_additives">
+                    <label for="without_additives">Without</label>
+                <input type="radio" name="additives" value="with" id="with_additives">
+                    <label for="with_additives">With</label>
+                <input type="radio" name="additives" value="indifferent" id="indifferent_additives" checked="checked">
+                    <label for="indifferent_additives">Indifferent</label>
+        </div>
+        <div class="small-12 medium-12 large-6 columns">
+            <label>Ingredients from palm oil</label>
+                <input type="radio" name="ingredients_from_palm_oil" value="without" id="without_ingredients_from_palm_oil">
+                    <label for="without_ingredients_from_palm_oil">Without</label>
+                <input type="radio" name="ingredients_from_palm_oil" value="with" id="with_ingredients_from_palm_oil">
+                    <label for="with_ingredients_from_palm_oil">With</label>
+                <input type="radio" name="ingredients_from_palm_oil" value="indifferent" id="indifferent_ingredients_from_palm_oil" checked="checked">
+                    <label for="indifferent_ingredients_from_palm_oil">Indifferent</label>
+        </div>
+        <div class="small-12 medium-12 large-6 columns">
+            <label>Ingredients that may be from palm oil</label>
+                <input type="radio" name="ingredients_that_may_be_from_palm_oil" value="without" id="without_ingredients_that_may_be_from_palm_oil">
+                    <label for="without_ingredients_that_may_be_from_palm_oil">Without</label>
+                <input type="radio" name="ingredients_that_may_be_from_palm_oil" value="with" id="with_ingredients_that_may_be_from_palm_oil">
+                    <label for="with_ingredients_that_may_be_from_palm_oil">With</label>
+                <input type="radio" name="ingredients_that_may_be_from_palm_oil" value="indifferent" id="indifferent_ingredients_that_may_be_from_palm_oil" checked="checked">
+                    <label for="indifferent_ingredients_that_may_be_from_palm_oil">Indifferent</label>
+        </div>
+        <div class="small-12 medium-12 large-6 columns">
+            <label>Ingredients from or that may be from palm oil</label>
+                <input type="radio" name="ingredients_from_or_that_may_be_from_palm_oil" value="without" id="without_ingredients_from_or_that_may_be_from_palm_oil">
+                    <label for="without_ingredients_from_or_that_may_be_from_palm_oil">Without</label>
+                <input type="radio" name="ingredients_from_or_that_may_be_from_palm_oil" value="with" id="with_ingredients_from_or_that_may_be_from_palm_oil">
+                    <label for="with_ingredients_from_or_that_may_be_from_palm_oil">With</label>
+                <input type="radio" name="ingredients_from_or_that_may_be_from_palm_oil" value="indifferent" id="indifferent_ingredients_from_or_that_may_be_from_palm_oil" checked="checked">
+                    <label for="indifferent_ingredients_from_or_that_may_be_from_palm_oil">Indifferent</label>
+        </div>
+    </div>
+    
+    <h3>Nutriments</h3>
+    <div class="row">
+        <div class="small-12 medium-12 large-6 columns">
+            <div class="row">
+                <div class="small-8 columns">
+    <select name="nutriment_0" id="nutriment_0">
+    <option value="search_nutriment">choose a nutriment...</option>
+    <option value="energy-kj">Energy (kJ)</option>
+    <option value="energy-kcal">Energy (kcal)</option>
+    <option value="energy">Energy</option>
+    <option value="energy-from-fat">Energy from fat</option>
+    <option value="fat">Fat</option>
+    <option value="saturated-fat">Saturated fat</option>
+    <option value="butyric-acid">Butyric acid (4:0)</option>
+    <option value="caproic-acid">Caproic acid (6:0)</option>
+    <option value="caprylic-acid">Caprylic acid (8:0)</option>
+    <option value="capric-acid">Capric acid (10:0)</option>
+    <option value="lauric-acid">Lauric acid (12:0)</option>
+    <option value="myristic-acid">Myristic acid (14:0)</option>
+    <option value="palmitic-acid">Palmitic acid (16:0)</option>
+    <option value="stearic-acid">Stearic acid (18:0)</option>
+    <option value="arachidic-acid">Arachidic acid (20:0)</option>
+    <option value="behenic-acid">Behenic acid (22:0)</option>
+    <option value="lignoceric-acid">Lignoceric acid (24:0)</option>
+    <option value="cerotic-acid">Cerotic acid (26:0)</option>
+    <option value="montanic-acid">Montanic acid (28:0)</option>
+    <option value="melissic-acid">Melissic acid (30:0)</option>
+    <option value="monounsaturated-fat">Monounsaturated fat</option>
+    <option value="polyunsaturated-fat">Polyunsaturated fat</option>
+    <option value="omega-3-fat">Omega 3 fatty acids</option>
+    <option value="alpha-linolenic-acid">Alpha-linolenic acid / ALA (18:3 n-3)</option>
+    <option value="eicosapentaenoic-acid">Eicosapentaenoic acid / EPA (20:5 n-3)</option>
+    <option value="docosahexaenoic-acid">Docosahexaenoic acid / DHA (22:6 n-3)</option>
+    <option value="omega-6-fat">Omega 6 fatty acids</option>
+    <option value="linoleic-acid">Linoleic acid / LA (18:2 n-6)</option>
+    <option value="arachidonic-acid">Arachidonic acid / AA / ARA (20:4 n-6)</option>
+    <option value="gamma-linolenic-acid">Gamma-linolenic acid / GLA (18:3 n-6)</option>
+    <option value="dihomo-gamma-linolenic-acid">Dihomo-gamma-linolenic acid / DGLA (20:3 n-6)</option>
+    <option value="omega-9-fat">Omega 9 fatty acids</option>
+    <option value="oleic-acid">Oleic acid (18:1 n-9)</option>
+    <option value="elaidic-acid">Elaidic acid (18:1 n-9)</option>
+    <option value="gondoic-acid">Gondoic acid (20:1 n-9)</option>
+    <option value="mead-acid">Mead acid (20:3 n-9)</option>
+    <option value="erucic-acid">Erucic acid (22:1 n-9)</option>
+    <option value="nervonic-acid">Nervonic acid (24:1 n-9)</option>
+    <option value="trans-fat">Trans fat</option>
+    <option value="cholesterol">Cholesterol</option>
+    <option value="carbohydrates">Carbohydrates</option>
+    <option value="sugars">Sugars</option>
+    <option value="sucrose">Sucrose</option>
+    <option value="glucose">Glucose</option>
+    <option value="fructose">Fructose</option>
+    <option value="lactose">Lactose</option>
+    <option value="maltose">Maltose</option>
+    <option value="maltodextrins">Maltodextrins</option>
+    <option value="starch">Starch</option>
+    <option value="polyols">Sugar alcohols (Polyols)</option>
+    <option value="fiber">Fibers</option>
+    <option value="proteins">Proteins</option>
+    <option value="casein">casein</option>
+    <option value="serum-proteins">Serum proteins</option>
+    <option value="nucleotides">Nucleotides</option>
+    <option value="salt">Salt</option>
+    <option value="sodium">Sodium</option>
+    <option value="alcohol">Alcohol</option>
+    <option value="vitamin-a">Vitamin A</option>
+    <option value="beta-carotene">Beta carotene</option>
+    <option value="vitamin-d">Vitamin D</option>
+    <option value="vitamin-e">Vitamin E</option>
+    <option value="vitamin-k">Vitamin K</option>
+    <option value="vitamin-c">Vitamin C (ascorbic acid)</option>
+    <option value="vitamin-b1">Vitamin B1 (Thiamin)</option>
+    <option value="vitamin-b2">Vitamin B2 (Riboflavin)</option>
+    <option value="vitamin-pp">Vitamin B3 / Vitamin PP (Niacin)</option>
+    <option value="vitamin-b6">Vitamin B6 (Pyridoxin)</option>
+    <option value="vitamin-b9">Vitamin B9 (Folic acid)</option>
+    <option value="folates">Folates (total folates)</option>
+    <option value="vitamin-b12">Vitamin B12 (cobalamin)</option>
+    <option value="biotin">Biotin</option>
+    <option value="pantothenic-acid">Pantothenic acid / Pantothenate (Vitamin B5)</option>
+    <option value="silica">Silica</option>
+    <option value="bicarbonate">Bicarbonate</option>
+    <option value="potassium">Potassium</option>
+    <option value="chloride">Chloride</option>
+    <option value="calcium">Calcium</option>
+    <option value="phosphorus">Phosphorus</option>
+    <option value="iron">Iron</option>
+    <option value="magnesium">Magnesium</option>
+    <option value="zinc">Zinc</option>
+    <option value="copper">Copper</option>
+    <option value="manganese">Manganese</option>
+    <option value="fluoride">Fluoride</option>
+    <option value="selenium">Selenium</option>
+    <option value="chromium">Chromium</option>
+    <option value="molybdenum">Molybdenum</option>
+    <option value="iodine">Iodine</option>
+    <option value="caffeine">Caffeine</option>
+    <option value="taurine">Taurine</option>
+    <option value="ph">pH</option>
+    <option value="fruits-vegetables-nuts">Fruits, vegetables, nuts and rapeseed, walnut and olive oils</option>
+    <option value="fruits-vegetables-nuts-dried">Fruits, vegetables and nuts - dried</option>
+    <option value="fruits-vegetables-nuts-estimate">Fruits, vegetables, nuts and rapeseed, walnut and olive oils (estimate from ingredients list)</option>
+    <option value="collagen-meat-protein-ratio">Collagen/Meat protein ratio (maximum)</option>
+    <option value="cocoa">Cocoa (minimum)</option>
+    <option value="chlorophyl">Chlorophyl</option>
+    <option value="carbon-footprint">Carbon footprint / CO2 emissions</option>
+    <option value="carbon-footprint-from-meat-or-fish">Carbon footprint from meat or fish</option>
+    <option value="nutrition-score-fr">Nutrition score - France</option>
+    <option value="nutrition-score-uk">Nutrition score - UK</option>
+    <option value="glycemic-index">Glycemic Index</option>
+    <option value="water-hardness">Water hardness</option>
+    <option value="choline">Choline</option>
+    <option value="phylloquinone">Vitamin K1 (Phylloquinone)</option>
+    <option value="beta-glucan">Beta-glucan</option>
+    <option value="inositol">Inositol</option>
+    <option value="carnitine">Carnitine</option>
+    </select>			</div>
+                <div class="small-2 columns">
+    <select name="nutriment_compare_0" id="nutriment_compare_0">
+    <option value="lt">&lt;</option>
+    <option value="lte">≤</option>
+    <option value="gt">&gt;</option>
+    <option value="gte">≥</option>
+    <option value="eq">=</option>
+    </select>			</div>
+                <div class="small-2 columns">
+                    <input type="text" id="nutriment_value_0" name="nutriment_value_0" value="">
+                </div>
+            </div>
+        </div>
+        <div class="small-12 medium-12 large-6 columns">
+            <div class="row">
+                <div class="small-8 columns">
+    <select name="nutriment_1" id="nutriment_1">
+    <option value="search_nutriment">choose a nutriment...</option>
+    <option value="energy-kj">Energy (kJ)</option>
+    <option value="energy-kcal">Energy (kcal)</option>
+    <option value="energy">Energy</option>
+    <option value="energy-from-fat">Energy from fat</option>
+    <option value="fat">Fat</option>
+    <option value="saturated-fat">Saturated fat</option>
+    <option value="butyric-acid">Butyric acid (4:0)</option>
+    <option value="caproic-acid">Caproic acid (6:0)</option>
+    <option value="caprylic-acid">Caprylic acid (8:0)</option>
+    <option value="capric-acid">Capric acid (10:0)</option>
+    <option value="lauric-acid">Lauric acid (12:0)</option>
+    <option value="myristic-acid">Myristic acid (14:0)</option>
+    <option value="palmitic-acid">Palmitic acid (16:0)</option>
+    <option value="stearic-acid">Stearic acid (18:0)</option>
+    <option value="arachidic-acid">Arachidic acid (20:0)</option>
+    <option value="behenic-acid">Behenic acid (22:0)</option>
+    <option value="lignoceric-acid">Lignoceric acid (24:0)</option>
+    <option value="cerotic-acid">Cerotic acid (26:0)</option>
+    <option value="montanic-acid">Montanic acid (28:0)</option>
+    <option value="melissic-acid">Melissic acid (30:0)</option>
+    <option value="monounsaturated-fat">Monounsaturated fat</option>
+    <option value="polyunsaturated-fat">Polyunsaturated fat</option>
+    <option value="omega-3-fat">Omega 3 fatty acids</option>
+    <option value="alpha-linolenic-acid">Alpha-linolenic acid / ALA (18:3 n-3)</option>
+    <option value="eicosapentaenoic-acid">Eicosapentaenoic acid / EPA (20:5 n-3)</option>
+    <option value="docosahexaenoic-acid">Docosahexaenoic acid / DHA (22:6 n-3)</option>
+    <option value="omega-6-fat">Omega 6 fatty acids</option>
+    <option value="linoleic-acid">Linoleic acid / LA (18:2 n-6)</option>
+    <option value="arachidonic-acid">Arachidonic acid / AA / ARA (20:4 n-6)</option>
+    <option value="gamma-linolenic-acid">Gamma-linolenic acid / GLA (18:3 n-6)</option>
+    <option value="dihomo-gamma-linolenic-acid">Dihomo-gamma-linolenic acid / DGLA (20:3 n-6)</option>
+    <option value="omega-9-fat">Omega 9 fatty acids</option>
+    <option value="oleic-acid">Oleic acid (18:1 n-9)</option>
+    <option value="elaidic-acid">Elaidic acid (18:1 n-9)</option>
+    <option value="gondoic-acid">Gondoic acid (20:1 n-9)</option>
+    <option value="mead-acid">Mead acid (20:3 n-9)</option>
+    <option value="erucic-acid">Erucic acid (22:1 n-9)</option>
+    <option value="nervonic-acid">Nervonic acid (24:1 n-9)</option>
+    <option value="trans-fat">Trans fat</option>
+    <option value="cholesterol">Cholesterol</option>
+    <option value="carbohydrates">Carbohydrates</option>
+    <option value="sugars">Sugars</option>
+    <option value="sucrose">Sucrose</option>
+    <option value="glucose">Glucose</option>
+    <option value="fructose">Fructose</option>
+    <option value="lactose">Lactose</option>
+    <option value="maltose">Maltose</option>
+    <option value="maltodextrins">Maltodextrins</option>
+    <option value="starch">Starch</option>
+    <option value="polyols">Sugar alcohols (Polyols)</option>
+    <option value="fiber">Fibers</option>
+    <option value="proteins">Proteins</option>
+    <option value="casein">casein</option>
+    <option value="serum-proteins">Serum proteins</option>
+    <option value="nucleotides">Nucleotides</option>
+    <option value="salt">Salt</option>
+    <option value="sodium">Sodium</option>
+    <option value="alcohol">Alcohol</option>
+    <option value="vitamin-a">Vitamin A</option>
+    <option value="beta-carotene">Beta carotene</option>
+    <option value="vitamin-d">Vitamin D</option>
+    <option value="vitamin-e">Vitamin E</option>
+    <option value="vitamin-k">Vitamin K</option>
+    <option value="vitamin-c">Vitamin C (ascorbic acid)</option>
+    <option value="vitamin-b1">Vitamin B1 (Thiamin)</option>
+    <option value="vitamin-b2">Vitamin B2 (Riboflavin)</option>
+    <option value="vitamin-pp">Vitamin B3 / Vitamin PP (Niacin)</option>
+    <option value="vitamin-b6">Vitamin B6 (Pyridoxin)</option>
+    <option value="vitamin-b9">Vitamin B9 (Folic acid)</option>
+    <option value="folates">Folates (total folates)</option>
+    <option value="vitamin-b12">Vitamin B12 (cobalamin)</option>
+    <option value="biotin">Biotin</option>
+    <option value="pantothenic-acid">Pantothenic acid / Pantothenate (Vitamin B5)</option>
+    <option value="silica">Silica</option>
+    <option value="bicarbonate">Bicarbonate</option>
+    <option value="potassium">Potassium</option>
+    <option value="chloride">Chloride</option>
+    <option value="calcium">Calcium</option>
+    <option value="phosphorus">Phosphorus</option>
+    <option value="iron">Iron</option>
+    <option value="magnesium">Magnesium</option>
+    <option value="zinc">Zinc</option>
+    <option value="copper">Copper</option>
+    <option value="manganese">Manganese</option>
+    <option value="fluoride">Fluoride</option>
+    <option value="selenium">Selenium</option>
+    <option value="chromium">Chromium</option>
+    <option value="molybdenum">Molybdenum</option>
+    <option value="iodine">Iodine</option>
+    <option value="caffeine">Caffeine</option>
+    <option value="taurine">Taurine</option>
+    <option value="ph">pH</option>
+    <option value="fruits-vegetables-nuts">Fruits, vegetables, nuts and rapeseed, walnut and olive oils</option>
+    <option value="fruits-vegetables-nuts-dried">Fruits, vegetables and nuts - dried</option>
+    <option value="fruits-vegetables-nuts-estimate">Fruits, vegetables, nuts and rapeseed, walnut and olive oils (estimate from ingredients list)</option>
+    <option value="collagen-meat-protein-ratio">Collagen/Meat protein ratio (maximum)</option>
+    <option value="cocoa">Cocoa (minimum)</option>
+    <option value="chlorophyl">Chlorophyl</option>
+    <option value="carbon-footprint">Carbon footprint / CO2 emissions</option>
+    <option value="carbon-footprint-from-meat-or-fish">Carbon footprint from meat or fish</option>
+    <option value="nutrition-score-fr">Nutrition score - France</option>
+    <option value="nutrition-score-uk">Nutrition score - UK</option>
+    <option value="glycemic-index">Glycemic Index</option>
+    <option value="water-hardness">Water hardness</option>
+    <option value="choline">Choline</option>
+    <option value="phylloquinone">Vitamin K1 (Phylloquinone)</option>
+    <option value="beta-glucan">Beta-glucan</option>
+    <option value="inositol">Inositol</option>
+    <option value="carnitine">Carnitine</option>
+    </select>			</div>
+                <div class="small-2 columns">
+    <select name="nutriment_compare_1" id="nutriment_compare_1">
+    <option value="lt">&lt;</option>
+    <option value="lte">≤</option>
+    <option value="gt">&gt;</option>
+    <option value="gte">≥</option>
+    <option value="eq">=</option>
+    </select>			</div>
+                <div class="small-2 columns">
+                    <input type="text" id="nutriment_value_1" name="nutriment_value_1" value="">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <input type="hidden" name="action" value="process">
+    
+    <ul class="accordion" style="margin-left:0" data-accordion="">
+        <li class="accordion-navigation active">
+            <a href="#results_list" style="border-top:1px solid #ccc" aria-expanded="true"><h3>Results in a list of products</h3></a>
+            <div id="results_list" class="content active">
+    
+                <div class="row">
+                    <div class="small-6 columns">
+                        <label for="sort_by">Sort by</label>
+                        <select name="sort_by" id="sort_by">
+    <option value="unique_scans_n">Popularity</option>
+    <option value="product_name">Product name</option>
+    <option value="created_t">Add date</option>
+    <option value="last_modified_t">Edit date</option>
+    <option value="completeness">Completeness</option>
+    </select>
+                    </div>
+                    <div class="small-6 columns">
+                        <label for="page_size">Results per page</label>
+                        <select name="page_size" id="page_size">
+    <option value="20">20</option>
+    <option value="50">50</option>
+    <option value="100">100</option>
+    <option value="250">250</option>
+    <option value="500">500</option>
+    <option value="1000">1000</option>
+    </select>
+                    </div>
+                </div>
+    
+            <input type="submit" name="search" class="button" value="Search">
+            </div>
+        </li>
+        <li class="accordion-navigation">
+            <a href="#results_graph" style="border-top:1px solid #ccc" aria-expanded="false"><h3>Results on a graph</h3></a>
+            <div id="results_graph" class="content ">
+    
+                <div class="alert-box info">The graph will show only products for which displayed values are known.</div>
+    
+                <label for="graph_title">Graph title</label>
+                <input type="text" name="graph_title" id="graph_title" value="">
+    
+                <p>Select what you want to graph on the horizontal axis to obtain a histogram, or select two axis to
+    get a cloud of products (scatter plot).</p>
+    
+                <div class="row">
+                    <div class="small-12 medium-6 columns">
+    <label for="axis_x">Horizontal axis</label><select name="axis_x" id="axis_x">
+    <option value="energy-kj">Energy (kJ)</option>
+    <option value="energy-kcal">Energy (kcal)</option>
+    <option value="energy">Energy</option>
+    <option value="energy-from-fat">Energy from fat</option>
+    <option value="fat">Fat</option>
+    <option value="saturated-fat">Saturated fat</option>
+    <option value="butyric-acid">Butyric acid (4:0)</option>
+    <option value="caproic-acid">Caproic acid (6:0)</option>
+    <option value="caprylic-acid">Caprylic acid (8:0)</option>
+    <option value="capric-acid">Capric acid (10:0)</option>
+    <option value="lauric-acid">Lauric acid (12:0)</option>
+    <option value="myristic-acid">Myristic acid (14:0)</option>
+    <option value="palmitic-acid">Palmitic acid (16:0)</option>
+    <option value="stearic-acid">Stearic acid (18:0)</option>
+    <option value="arachidic-acid">Arachidic acid (20:0)</option>
+    <option value="behenic-acid">Behenic acid (22:0)</option>
+    <option value="lignoceric-acid">Lignoceric acid (24:0)</option>
+    <option value="cerotic-acid">Cerotic acid (26:0)</option>
+    <option value="montanic-acid">Montanic acid (28:0)</option>
+    <option value="melissic-acid">Melissic acid (30:0)</option>
+    <option value="monounsaturated-fat">Monounsaturated fat</option>
+    <option value="polyunsaturated-fat">Polyunsaturated fat</option>
+    <option value="omega-3-fat">Omega 3 fatty acids</option>
+    <option value="alpha-linolenic-acid">Alpha-linolenic acid / ALA (18:3 n-3)</option>
+    <option value="eicosapentaenoic-acid">Eicosapentaenoic acid / EPA (20:5 n-3)</option>
+    <option value="docosahexaenoic-acid">Docosahexaenoic acid / DHA (22:6 n-3)</option>
+    <option value="omega-6-fat">Omega 6 fatty acids</option>
+    <option value="linoleic-acid">Linoleic acid / LA (18:2 n-6)</option>
+    <option value="arachidonic-acid">Arachidonic acid / AA / ARA (20:4 n-6)</option>
+    <option value="gamma-linolenic-acid">Gamma-linolenic acid / GLA (18:3 n-6)</option>
+    <option value="dihomo-gamma-linolenic-acid">Dihomo-gamma-linolenic acid / DGLA (20:3 n-6)</option>
+    <option value="omega-9-fat">Omega 9 fatty acids</option>
+    <option value="oleic-acid">Oleic acid (18:1 n-9)</option>
+    <option value="elaidic-acid">Elaidic acid (18:1 n-9)</option>
+    <option value="gondoic-acid">Gondoic acid (20:1 n-9)</option>
+    <option value="mead-acid">Mead acid (20:3 n-9)</option>
+    <option value="erucic-acid">Erucic acid (22:1 n-9)</option>
+    <option value="nervonic-acid">Nervonic acid (24:1 n-9)</option>
+    <option value="trans-fat">Trans fat</option>
+    <option value="cholesterol">Cholesterol</option>
+    <option value="carbohydrates">Carbohydrates</option>
+    <option value="sugars">Sugars</option>
+    <option value="sucrose">Sucrose</option>
+    <option value="glucose">Glucose</option>
+    <option value="fructose">Fructose</option>
+    <option value="lactose">Lactose</option>
+    <option value="maltose">Maltose</option>
+    <option value="maltodextrins">Maltodextrins</option>
+    <option value="starch">Starch</option>
+    <option value="polyols">Sugar alcohols (Polyols)</option>
+    <option value="fiber">Fibers</option>
+    <option value="proteins">Proteins</option>
+    <option value="casein">casein</option>
+    <option value="serum-proteins">Serum proteins</option>
+    <option value="nucleotides">Nucleotides</option>
+    <option value="salt">Salt</option>
+    <option value="sodium">Sodium</option>
+    <option value="alcohol">Alcohol</option>
+    <option value="vitamin-a">Vitamin A</option>
+    <option value="beta-carotene">Beta carotene</option>
+    <option value="vitamin-d">Vitamin D</option>
+    <option value="vitamin-e">Vitamin E</option>
+    <option value="vitamin-k">Vitamin K</option>
+    <option value="vitamin-c">Vitamin C (ascorbic acid)</option>
+    <option value="vitamin-b1">Vitamin B1 (Thiamin)</option>
+    <option value="vitamin-b2">Vitamin B2 (Riboflavin)</option>
+    <option value="vitamin-pp">Vitamin B3 / Vitamin PP (Niacin)</option>
+    <option value="vitamin-b6">Vitamin B6 (Pyridoxin)</option>
+    <option value="vitamin-b9">Vitamin B9 (Folic acid)</option>
+    <option value="folates">Folates (total folates)</option>
+    <option value="vitamin-b12">Vitamin B12 (cobalamin)</option>
+    <option value="biotin">Biotin</option>
+    <option value="pantothenic-acid">Pantothenic acid / Pantothenate (Vitamin B5)</option>
+    <option value="silica">Silica</option>
+    <option value="bicarbonate">Bicarbonate</option>
+    <option value="potassium">Potassium</option>
+    <option value="chloride">Chloride</option>
+    <option value="calcium">Calcium</option>
+    <option value="phosphorus">Phosphorus</option>
+    <option value="iron">Iron</option>
+    <option value="magnesium">Magnesium</option>
+    <option value="zinc">Zinc</option>
+    <option value="copper">Copper</option>
+    <option value="manganese">Manganese</option>
+    <option value="fluoride">Fluoride</option>
+    <option value="selenium">Selenium</option>
+    <option value="chromium">Chromium</option>
+    <option value="molybdenum">Molybdenum</option>
+    <option value="iodine">Iodine</option>
+    <option value="caffeine">Caffeine</option>
+    <option value="taurine">Taurine</option>
+    <option value="ph">pH</option>
+    <option value="fruits-vegetables-nuts">Fruits, vegetables, nuts and rapeseed, walnut and olive oils</option>
+    <option value="fruits-vegetables-nuts-dried">Fruits, vegetables and nuts - dried</option>
+    <option value="fruits-vegetables-nuts-estimate">Fruits, vegetables, nuts and rapeseed, walnut and olive oils (estimate from ingredients list)</option>
+    <option value="collagen-meat-protein-ratio">Collagen/Meat protein ratio (maximum)</option>
+    <option value="cocoa">Cocoa (minimum)</option>
+    <option value="chlorophyl">Chlorophyl</option>
+    <option value="carbon-footprint">Carbon footprint / CO2 emissions</option>
+    <option value="carbon-footprint-from-meat-or-fish">Carbon footprint from meat or fish</option>
+    <option value="nutrition-score-fr">Nutrition score - France</option>
+    <option value="nutrition-score-uk">Nutrition score - UK</option>
+    <option value="glycemic-index">Glycemic Index</option>
+    <option value="water-hardness">Water hardness</option>
+    <option value="choline">Choline</option>
+    <option value="phylloquinone">Vitamin K1 (Phylloquinone)</option>
+    <option value="beta-glucan">Beta-glucan</option>
+    <option value="inositol">Inositol</option>
+    <option value="carnitine">Carnitine</option>
+    <option value="additives_n">Number of additives</option>
+    <option value="ingredients_n">Number of ingredients</option>
+    </select>				</div>
+                    <div class="small-12 medium-6 columns">
+    <label for="axis_y">Vertical axis</label><select name="axis_y" id="axis_y">
+    <option value="products_n">Number of products</option>
+    <option value="energy-kj">Energy (kJ)</option>
+    <option value="energy-kcal">Energy (kcal)</option>
+    <option value="energy">Energy</option>
+    <option value="energy-from-fat">Energy from fat</option>
+    <option value="fat">Fat</option>
+    <option value="saturated-fat">Saturated fat</option>
+    <option value="butyric-acid">Butyric acid (4:0)</option>
+    <option value="caproic-acid">Caproic acid (6:0)</option>
+    <option value="caprylic-acid">Caprylic acid (8:0)</option>
+    <option value="capric-acid">Capric acid (10:0)</option>
+    <option value="lauric-acid">Lauric acid (12:0)</option>
+    <option value="myristic-acid">Myristic acid (14:0)</option>
+    <option value="palmitic-acid">Palmitic acid (16:0)</option>
+    <option value="stearic-acid">Stearic acid (18:0)</option>
+    <option value="arachidic-acid">Arachidic acid (20:0)</option>
+    <option value="behenic-acid">Behenic acid (22:0)</option>
+    <option value="lignoceric-acid">Lignoceric acid (24:0)</option>
+    <option value="cerotic-acid">Cerotic acid (26:0)</option>
+    <option value="montanic-acid">Montanic acid (28:0)</option>
+    <option value="melissic-acid">Melissic acid (30:0)</option>
+    <option value="monounsaturated-fat">Monounsaturated fat</option>
+    <option value="polyunsaturated-fat">Polyunsaturated fat</option>
+    <option value="omega-3-fat">Omega 3 fatty acids</option>
+    <option value="alpha-linolenic-acid">Alpha-linolenic acid / ALA (18:3 n-3)</option>
+    <option value="eicosapentaenoic-acid">Eicosapentaenoic acid / EPA (20:5 n-3)</option>
+    <option value="docosahexaenoic-acid">Docosahexaenoic acid / DHA (22:6 n-3)</option>
+    <option value="omega-6-fat">Omega 6 fatty acids</option>
+    <option value="linoleic-acid">Linoleic acid / LA (18:2 n-6)</option>
+    <option value="arachidonic-acid">Arachidonic acid / AA / ARA (20:4 n-6)</option>
+    <option value="gamma-linolenic-acid">Gamma-linolenic acid / GLA (18:3 n-6)</option>
+    <option value="dihomo-gamma-linolenic-acid">Dihomo-gamma-linolenic acid / DGLA (20:3 n-6)</option>
+    <option value="omega-9-fat">Omega 9 fatty acids</option>
+    <option value="oleic-acid">Oleic acid (18:1 n-9)</option>
+    <option value="elaidic-acid">Elaidic acid (18:1 n-9)</option>
+    <option value="gondoic-acid">Gondoic acid (20:1 n-9)</option>
+    <option value="mead-acid">Mead acid (20:3 n-9)</option>
+    <option value="erucic-acid">Erucic acid (22:1 n-9)</option>
+    <option value="nervonic-acid">Nervonic acid (24:1 n-9)</option>
+    <option value="trans-fat">Trans fat</option>
+    <option value="cholesterol">Cholesterol</option>
+    <option value="carbohydrates">Carbohydrates</option>
+    <option value="sugars">Sugars</option>
+    <option value="sucrose">Sucrose</option>
+    <option value="glucose">Glucose</option>
+    <option value="fructose">Fructose</option>
+    <option value="lactose">Lactose</option>
+    <option value="maltose">Maltose</option>
+    <option value="maltodextrins">Maltodextrins</option>
+    <option value="starch">Starch</option>
+    <option value="polyols">Sugar alcohols (Polyols)</option>
+    <option value="fiber">Fibers</option>
+    <option value="proteins">Proteins</option>
+    <option value="casein">casein</option>
+    <option value="serum-proteins">Serum proteins</option>
+    <option value="nucleotides">Nucleotides</option>
+    <option value="salt">Salt</option>
+    <option value="sodium">Sodium</option>
+    <option value="alcohol">Alcohol</option>
+    <option value="vitamin-a">Vitamin A</option>
+    <option value="beta-carotene">Beta carotene</option>
+    <option value="vitamin-d">Vitamin D</option>
+    <option value="vitamin-e">Vitamin E</option>
+    <option value="vitamin-k">Vitamin K</option>
+    <option value="vitamin-c">Vitamin C (ascorbic acid)</option>
+    <option value="vitamin-b1">Vitamin B1 (Thiamin)</option>
+    <option value="vitamin-b2">Vitamin B2 (Riboflavin)</option>
+    <option value="vitamin-pp">Vitamin B3 / Vitamin PP (Niacin)</option>
+    <option value="vitamin-b6">Vitamin B6 (Pyridoxin)</option>
+    <option value="vitamin-b9">Vitamin B9 (Folic acid)</option>
+    <option value="folates">Folates (total folates)</option>
+    <option value="vitamin-b12">Vitamin B12 (cobalamin)</option>
+    <option value="biotin">Biotin</option>
+    <option value="pantothenic-acid">Pantothenic acid / Pantothenate (Vitamin B5)</option>
+    <option value="silica">Silica</option>
+    <option value="bicarbonate">Bicarbonate</option>
+    <option value="potassium">Potassium</option>
+    <option value="chloride">Chloride</option>
+    <option value="calcium">Calcium</option>
+    <option value="phosphorus">Phosphorus</option>
+    <option value="iron">Iron</option>
+    <option value="magnesium">Magnesium</option>
+    <option value="zinc">Zinc</option>
+    <option value="copper">Copper</option>
+    <option value="manganese">Manganese</option>
+    <option value="fluoride">Fluoride</option>
+    <option value="selenium">Selenium</option>
+    <option value="chromium">Chromium</option>
+    <option value="molybdenum">Molybdenum</option>
+    <option value="iodine">Iodine</option>
+    <option value="caffeine">Caffeine</option>
+    <option value="taurine">Taurine</option>
+    <option value="ph">pH</option>
+    <option value="fruits-vegetables-nuts">Fruits, vegetables, nuts and rapeseed, walnut and olive oils</option>
+    <option value="fruits-vegetables-nuts-dried">Fruits, vegetables and nuts - dried</option>
+    <option value="fruits-vegetables-nuts-estimate">Fruits, vegetables, nuts and rapeseed, walnut and olive oils (estimate from ingredients list)</option>
+    <option value="collagen-meat-protein-ratio">Collagen/Meat protein ratio (maximum)</option>
+    <option value="cocoa">Cocoa (minimum)</option>
+    <option value="chlorophyl">Chlorophyl</option>
+    <option value="carbon-footprint">Carbon footprint / CO2 emissions</option>
+    <option value="carbon-footprint-from-meat-or-fish">Carbon footprint from meat or fish</option>
+    <option value="nutrition-score-fr">Nutrition score - France</option>
+    <option value="nutrition-score-uk">Nutrition score - UK</option>
+    <option value="glycemic-index">Glycemic Index</option>
+    <option value="water-hardness">Water hardness</option>
+    <option value="choline">Choline</option>
+    <option value="phylloquinone">Vitamin K1 (Phylloquinone)</option>
+    <option value="beta-glucan">Beta-glucan</option>
+    <option value="inositol">Inositol</option>
+    <option value="carnitine">Carnitine</option>
+    <option value="additives_n">Number of additives</option>
+    <option value="ingredients_n">Number of ingredients</option>
+    </select>				</div>
+                </div>
+    
+                <div class="row">
+                    <div class="small-12 medium-6 columns">
+                        <p>Use a different colour for the following products:</p>
+                        <input type="checkbox" id="series_organic" name="series_organic">
+                        <label for="series_organic" class="checkbox_label">Organic</label>
+    
+                        <input type="checkbox" id="series_fairtrade" name="series_fairtrade">
+                        <label for="series_fairtrade" class="checkbox_label">Fair trade</label>
+    
+                        <input type="checkbox" id="series_with_sweeteners" name="series_with_sweeteners">
+                        <label for="series_with_sweeteners" class="checkbox_label">With sweeteners</label>
+    
+                    </div>
+                    <div class="small-12 medium-6 columns">
+                        <p>or:</p>
+                        <input type="checkbox" id="series_nutrition_grades" name="series_nutrition_grades">
+                        <label for="series_nutrition_grades" class="checkbox_label">Use nutrition grades colours</label>
+    
+                    </div>
+                </div>
+    
+                <input type="submit" name="graph" value="Generate graph" class="button">
+    
+            </div>
+        </li>
+    
+        
+    </ul>
+    </form>
+</body>
+</html>
+
+
+

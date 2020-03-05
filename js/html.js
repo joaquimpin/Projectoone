@@ -17,10 +17,10 @@ let register = ["py-5 text-center", '<div class="container"> <div class="row"> <
 let product = ["py-5 borrar", "<div class='container'> <div class='row'> <div class='px-lg-5 d-flex flex-column justify-content-center col-lg-6'> <h1 contenteditable='true'>Nutella</h1> <p class='mb-3 lead' contenteditable='true'>Código de barras: 3017620422003 (EAN / EAN-13)</p> </div> </div> </div> <div class='container'> <div class='row'> <div class='col-md-12'> <div class='table-responsive'> <table class='table table-striped table-dark'> <thead> <tr> <th scope='col'> </th> <th scope='col'>${element.name}</th> <th scope='col'>Last</th> </tr> </thead> <tbody> <tr> <th scope='row'>1</th> <td>Mark</td> <td>Otto</td> </tr> <tr> <th scope='row'>2</th> <td>Jacob</td> <td>Thornton</td> </tr> <tr> <th scope='row'>3</th> <td>Larry</td> <td>the Bird</td> </tr> </tbody> </table> </div> </div> </div> </div>"]
 botonPrincipal.addEventListener("click", function () { cargarHtml(principal) })
 botonLogIn.addEventListener("click", function () { eventobotonlogin(botonLogIn.querySelector("a").innerText) })
-botonBusqueda.addEventListener("click", function () { cargarHtml(resultadosbusqueda) })
+botonBusqueda.addEventListener("click", function () { cargarHtml(resultadosbusqueda);crearEventosArticle() })
 botonContacto.addEventListener("click", function () { cargarHtml(contacto) })
 botonFaq.addEventListener("click", function () { cargarHtml(faq) })
-submmitButton.addEventListener("click", function () { generarHtmlBusqueda(search(searchbar.value)) })
+submmitButton.addEventListener("click", function () { search(searchbar.value) })
 // searchbar.value
 // submmitButton.addEventListener("click",function(){search(searchbar.value)})
 cargarHtml(principal)
@@ -79,18 +79,51 @@ function registerUser() {
     user.crearUsuario(nombre.value, apellido.value, email.value, verifymail.value, password.value, verifypassword.value, termsandconditions.checked)
 
 }
-function generarHtmlBusqueda(arrayelements) {
+function generarHtmlBusqueda(arrayelements, totalelements, paginaactual) {
     let article = []
-    console.log(arrayProductosRespuesta.length)
+ 
+
+    piePaginacion = generarPiePagina(totalelements,paginaactual)
+
     for (let i = 0; i < arrayelements.length; i++) {
         const element = arrayelements[i];
         let base = `<div class="col-lg-3 col-md-1 p-3"> <div class="row"> <div class="col-3 p-0"> <img class="img-fluid d-block" src="${element.image_url}"> </div> <div class="col-9"> <p class="lead mb-1"> <b>${i}</b> </p> <p class="mb-0">${element.product_name}</p> </div> </div></div>`
         article += base
     }
-    resultadosbusqueda = [`py-5 `, `<div class="container"> <div class="row"> <div class="col-md-12 text-center"> <h1>Search result:</h1> </div> </div> <div class="row justify-content-center"> ${article}</div></div>`]
+    resultadosbusqueda = [`py-5 `, `<div class="container"> <div class="row"> <div class="col-md-12 text-center"> <h1>Search result:</h1> </div> </div> <div class="row justify-content-center"> ${article}</div>${piePaginacion}</div>`]
 
     cargarHtml(resultadosbusqueda)
     crearEventosArticle()
+}
+function generarPiePagina(total,actual){
+    let botonespie ='<div class="row justify-content-center"> <div ><ul class="pagination">'
+    
+    let numeroDePaginasTotals = Math.floor(total / actual)
+
+    if (actual >= 1) {
+        botonespie+=`<li class="page-item"> <a class="page-link d-none" id=1>Prev</a> </li>`
+
+    } else {
+         botonespie+=`<li class="page-item"> <a class="page-link " id=Prev >Prev</a> </li>`
+
+    }
+        if(numeroDePaginasTotals>4){
+             botonespie+=`<li class="page-item"> <a class="page-link " id=${actual-1} >${actual-1}</a> </li>`
+             botonespie+=`<li class="page-item"> <a class="page-link " id=${actual}>${actual}</a> </li>`
+             botonespie+=`<li class="page-item active"> <a class="page-link " id=${Number(actual)+1} >${Number(actual)+1}</a> </li>`
+             botonespie+=`<li class="page-item"> <a class="page-link " id=${Number(actual)+2} >${Number(actual)+2}</a> </li>`
+        }
+
+
+
+    if (actual >=numeroDePaginasTotals ) {
+         botonespie+=`<li class="page-item"> <a class="page-link d-none" id=Next>Next</a> </li>`
+
+    } else {
+         botonespie+=`<li class="page-item"> <a class="page-link " id=Next >Next</a> </li>`
+
+    }
+    return botonespie+'</ul></div></div>'
 }
 
 
@@ -101,22 +134,22 @@ function cargarProducto(posicionArray) {
     cargarHtml(product)
 }
 
-function filterUndefined(value){
-    if(value==undefined||value==null){
-    return "information not available"
+function filterUndefined(value) {
+    if (value == undefined || value == null) {
+        return "information not available"
     }
 
     return value
 }
 
 // const fetch = require("node-fetch");
-function search(query) {
+function search(query, numberperpagina = 20, paginaactual = 1) {
     console.log(query)
-    fetch(`https://es.openfoodfacts.org/cgi/search.pl?search_terms=${query}&search_simple=1&json=true`)
+    fetch(`https://es.openfoodfacts.org/cgi/search.pl?search_terms=${query}&page_size=${numberperpagina}&page=${paginaactual}&search_simple=1&json=true`)
         .then(response => response.json())
         .then(data => {
             arrayProductosRespuesta = data.products
-            generarHtmlBusqueda(data.products)
+            generarHtmlBusqueda(data.products, data.count, data.page)
             return data; // no consigo capturar el return me da undefined a causa de la promise, le he puesto await al llamar a la funcion y tampoco me funciona.
         })
         .catch(error => console.error(error));
