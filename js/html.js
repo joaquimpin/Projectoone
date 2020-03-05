@@ -87,8 +87,18 @@ function crearEventosArticle() {
 }
 
 function crearEventosLogin() {
-    document.getElementsByClassName("Register")[0].addEventListener("click", function () { cargarHtml(register); crearEventosRegister() })
-    document.getElementsByClassName("login")[0].addEventListener("click", function () { loginaccount() })
+    try {
+        document.getElementsByClassName("Register")[0].addEventListener("click", function () { cargarHtml(register); crearEventosRegister() })
+
+    } catch (error) {
+        
+    }
+    try {
+        document.getElementsByClassName("login")[0].addEventListener("click", function () { loginaccount() })
+
+    } catch (error) {
+        
+    }
 }
 
 function crearEventosRegister() {
