@@ -62,10 +62,10 @@ function mensajeError(window, document, $, type, message) {
   // OR
 
   // With a jQuery plugin
-  $('document').ready(function () {
+  // $('document').ready(function () {
 
-    $('.jq-msg').flashjs();
+  //   $('.jq-msg').flashjs();
 
-  });
+  // });
 
 }
