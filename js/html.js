@@ -398,10 +398,10 @@ function readStatusLogin() {
 }
 function logout() {
     localStorage.removeItem("logged");
-    mensajeError(window, document, jQuery, "succes", "Logout");
+    mensajeError(window, document, jQuery, "success", "Logout");
     document.getElementsByClassName("iconuser")[0].innerHTML = "";
     botonLogIn.querySelector("a").innerText = "Login"
-    document.getElementsByClassName("login")[0].addEventListener("click", function () { loginaccount() })
+    // document.getElementsByClassName("login")[0].addEventListener("click", function () { loginaccount() })
 
 
 }
