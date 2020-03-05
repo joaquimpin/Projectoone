@@ -28,7 +28,7 @@ submmitButton.addEventListener("click", function () {  search(searchbar.value, e
 cargarHtml(principal)
 let arrayProductosRespuesta = []
 function eventobotonlogin(contenido) {
-    console.log("logginn")
+    // console.log("logginn")
     if (contenido === "Login") {
         cargarHtml(login); crearEventosLogin()
     } else {
