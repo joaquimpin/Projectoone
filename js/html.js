@@ -401,6 +401,8 @@ function readStatusLogin() {
         document.getElementsByClassName("iconuser")[0].addEventListener("click", function () {
             logout()
         })
+        mensajeError(window, document, jQuery, "success", "User loged in");
+
         crearEventosLogin()
 
     }
