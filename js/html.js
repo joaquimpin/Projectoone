@@ -209,12 +209,13 @@ class LoginValidator {
     }
     validarUsuario(usuario, password) {
         let objecteUsuari = JSON.parse(leerUsuarioBDD(usuario))
+        console.log(objecteUsuari)
         if (objecteUsuari != null) {
             if (password != null) {
                 if (objecteUsuari.password === password) {
                     if (objecteUsuari.email === usuario) {
                         mensajeError(window, document, jQuery, "success", "User loged in");
-
+                        console.log("logedin")
                         userlogged(objecteUsuari)
                         return
                     }
