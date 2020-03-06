@@ -209,7 +209,7 @@ class LoginValidator {
     }
     validarUsuario(usuario, password) {
         let objecteUsuari = JSON.parse(leerUsuarioBDD(usuario))
-        console.log(objecteUsuari)
+      //  console.log(objecteUsuari)
         if (objecteUsuari != null) {
             if (password != null) {
                 if (objecteUsuari.password === password) {
