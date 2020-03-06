@@ -408,5 +408,5 @@ function logout() {
 
 }
 readStatusLogin()
-
-
+let tempuserdemo = new Usuario("Joaquim","pineda","a@a.com","aaaaaa")
+localStorage.setItem(tempuserdemo.email,JSON.stringify(tempuserdemo))
