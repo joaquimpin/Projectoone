@@ -256,6 +256,7 @@ class SignupValidator {
                                                 this.grabrarUsuario(email, JSON.stringify(createNewUser))
                                                 setTimeout(function () {
                                                     cargarHtml(login);
+                                                    eventobotonlogin()
                                                 }, 2000);
 
                                             }
